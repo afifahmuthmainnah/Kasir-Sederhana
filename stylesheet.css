@@ -1,5 +1,25 @@
-
 h1 {
-      font-size:100px;
-      font-style: oblique;
+    font-size: 100px;
+
+}
+.container{
+    font-display:inherit;
+}
+
+.top-wrapper{
+    background-color: lightblue;
+
+} 
+  
+p table{
+    background-color: rgb(234, 250, 255);
+}
+  footer p {
+    color: #83828a;
+    font-size: 12px;
+  }
+  
+  footer {
+    padding-top: 30px;
+    padding-bottom: 20px;
   }
