@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
     <title>Fresh Fruit Market</title>
 </head>
-<body>
+<center>
+    <body>
     <h1>Fresh Fruit Market</h1>
+</center>
+<div class="top-wrapper">
     <h2>Daftar & Harga Buah</h2>
+</div>
     <ul>
         <li>Rambutan - Rp. 19.000 / Kg</li>
         <li>Semangka - Rp. 16.500 / Kg</li>
@@ -42,7 +47,6 @@
         </tr>
     </table>
     <p id="hasil"></p>
-
     <script>
         function hitung() {
             var jenisBuah = document.getElementById('jenis_buah').value;
@@ -120,10 +124,11 @@
             return harga;
         }
     </script>
-        <footer>
-            <div class="container">
-              <p>Afifah Muthmainnah</p>
-            </div>
-          </footer>
+
+    <footer>
+        <div class="container">
+          <p>created by Afifah Muthmainnah</p>
+        </div>
+      </footer>
 </body>
 </html>
