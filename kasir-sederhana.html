@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Fruit Market</title>
+</head>
+<body>
+    <h1>Fresh Fruit Market</h1>
+    <h2>Daftar & Harga Buah</h2>
+    <ul>
+        <li>Rambutan - Rp. 19.000 / Kg</li>
+        <li>Semangka - Rp. 16.500 / Kg</li>
+        <li>Pepaya - Rp. 13.000 / Kg</li>
+        <li>Melon - Rp. 12.500 / Kg</li>
+        <li>Anggur - Rp. 34.000 / Kg</li>
+    </ul>
+    <table>
+        <tr>
+            <td>Buah</td>
+            <td>
+                <select id="jenis_buah" style="width: 200px;">
+                    <option value="Rambutan">Rambutan</option>
+                    <option value="Semangka">Semangka</option>
+                    <option value="Pepaya">Pepaya</option>
+                    <option value="Melon">Melon</option>
+                    <option value="Anggur">Anggur</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Berat (Kg)</td>
+            <td><input type="number" id="berat" style="width: 200px;" placeholder="ex : 3"></td>
+        </tr>
+        <tr>
+            <td>Diskon (0 - 100%)</td>
+            <td><input type="number" id="diskon" style="width: 200px;" placeholder="ex : 10"></td>
+        </tr>
+        <tr>
+            <td><button onclick="hitung()">Total Harga</button></td>
+        </tr>
+    </table>
+    <p id="hasil"></p>
+
+    <script>
+        function hitung() {
+            var jenisBuah = document.getElementById('jenis_buah').value;
+            var berat = document.getElementById('berat').value;
+            var diskon = document.getElementById('diskon').value;
+            var hargaBuah = getHargaBuahKg(jenisBuah);
+
+            var hargaDiskon = ((diskon / 100) * (hargaBuah * berat));
+            var subTotal = (hargaBuah * berat);
+            var total = ((hargaBuah * berat) - hargaDiskon);
+
+            tampilHasil(jenisBuah, berat, diskon, hargaBuah, hargaDiskon, subTotal, total);
+        }
+
+        function tampilHasil(jenisBuah, berat, diskon, hargaBuah, hargaDiskon, subTotal, total) {
+            var data = "<table>" +
+                        "<tr>" +
+                            "<td>Jenis Buah</td>" +
+                            "<td>:</td>" +
+                            "<td>" + jenisBuah + "</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                            "<td>Harga Buah / Kg</td>" +
+                            "<td>:</td>" +
+                            "<td>Rp. " + hargaBuah + "</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                            "<td>Berat (Kg)</td>" +
+                            "<td>:</td>" +
+                            "<td>" + berat + "Kg</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                            "<td>Potongan Diskon</td>" +
+                            "<td>:</td>" +
+                            "<td>" + diskon + "%</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                            "<td>Besar Diskon</td>" +
+                            "<td>:</td>" +
+                            "<td>Rp. " + hargaDiskon + "</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                            "<td>Sub Total</td>" +
+                            "<td>:</td>" +
+                            "<td>Rp. " + subTotal + "</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                            "<td>Total Harga</td>" +
+                            "<td>:</td>" +
+                            "<td>Rp. " + total + "</td>" +
+                        "</tr>" +
+                        "</table>"
+                        ;
+            
+            document.getElementById('hasil').innerHTML = data;
+        }
+
+        function getHargaBuahKg(jenisBuah) {
+            var harga;
+
+            if (jenisBuah == "Rambutan") {
+                harga = 19000;
+            } else if (jenisBuah == "Semangka") {
+                harga = 16500;
+            } else if (jenisBuah == "Pepaya") {
+                harga = 13000;
+            } else if (jenisBuah == "Melon") {
+                harga = 12500;
+            } else if (jenisBuah == "Anggur") {
+                harga = 34000;
+            } else {
+                harga = 0;
+            }
+
+            return harga;
+        }
+    </script>
+        <footer>
+            <div class="container">
+              <p>Afifah Muthmainnah</p>
+            </div>
+          </footer>
+</body>
+</html>
